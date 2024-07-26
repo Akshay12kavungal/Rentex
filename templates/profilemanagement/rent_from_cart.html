@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Rent Item from Cart</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <h3>Item Details</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Displaying the image -->
+                        <img src="{{ cart_item.item.image.url }}" alt="{{ cart_item.item.name }}" class="img-fluid">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="card-title">{{ cart_item.item.name }}</h2>
+                        <p><strong>Quantity:</strong> {{ cart_item.quantity }}</p>
+                        <p><strong>Price per Unit:</strong> ${{ cart_item.item.price }}</p>
+                        <p><strong>Total Price:</strong> ${{ cart_item.total_price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Confirm Rental</button>
+    </form>
+</div>
+{% endblock %}

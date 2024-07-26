@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <img src="{{ object.image.url }}" class="card-img-top" alt="{{ object.name }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ object.name }}</h5>
+        <p class="card-text">{{ object.description }}</p>
+        <p class="card-text">Price: ${{ object.price }}</p>
+        <p class="card-text">Available: {% if object.availability %}Yes{% else %}No{% endif %}</p>
+        <a href="{% url 'audiovisual_update' object.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'audiovisual_delete' object.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+{% endblock %}

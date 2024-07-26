@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My Wallet</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Wallet Details</h2>
+                    <p><strong>Username:</strong> {{ wallet.user.username }}</p>
+                    <p><strong>Balance:</strong> ${{ wallet.balance }}</p>
+                    <p><strong>Transaction History:</strong></p>
+                    <pre>{{ wallet.transaction_history|default:"No transactions recorded" }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

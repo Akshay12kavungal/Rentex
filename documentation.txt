@@ -1,0 +1,77 @@
+Rentex Project Documentation
+
+Project Overview
+Rentex is a Django project designed to handle various categories of rental items. These categories include:
+
+Cameras
+Trekking Gear
+Riding Gear
+Action Cameras
+Gaming Consoles
+Winter Wear
+Audio-Visual Equipment
+Camping Gear
+Creator Gear
+The project also includes several key modules and features for user management and browsing.
+
+Project Structure
+1. Profile Management
+The Profile module handles user profile management and includes the following sections:
+
+Profile Overview: Displays general profile information and provides navigation to other profile-related sections.
+My Wallet: Manages the user's wallet, including balance and transaction history.
+My Account: Handles user account settings and personal information.
+My Orders: Shows the history of orders placed by the user.
+My Cart: Manages items currently in the user's shopping cart.
+2. Renting
+The Rent module is dedicated to managing rental items. Users can browse available rental options, view details, and make bookings.
+Cameras
+Trekking Gear
+Riding Gear
+Action Cameras
+Gaming Consoles
+Winter Wear
+Audio-Visual Equipment
+Camping Gear
+Creator Gear
+
+4. Policies and FAQs
+The Policies module provides details about rental policies, terms, and conditions.
+FAQs
+The FAQs module answers frequently asked questions about the rental process, policies, and other relevant topics.
+
+Navigation
+The project's navigation is organized as follows:
+
+Navbar: The navigation bar includes links to:
+Profile: Dropdown menu with links to Profile Overview, My Wallet, My Account, My Orders, My Cart, and Logout.
+Rent: Link to the renting section.
+Refurbished: Link to the refurbished items section.
+Policies: Link to the policies section.
+FAQs: Link to the FAQs section.
+Search Bar: Allows users to search for rental items or information.
+Logout: Option for users to log out of their account.
+App Modules
+1. Profile App
+Handles user profile management with views for overview, wallet, account settings, orders, and cart.
+
+2. Rent App
+Manages rental items and user interactions with the rental system.
+
+3. Refurbished App
+Displays refurbished items available for rent or purchase.
+
+4. Policies App
+Provides information about the rental policies and terms of service.
+ FAQs App
+Answers common questions related to the rental process and policies.
+
+Templates
+The project uses a base template that includes a navigation bar and search functionality. Other templates extend this base template to include specific content for each section of the site.
+
+Static Files
+Static files such as CSS and JavaScript are managed to ensure proper styling and functionality of the project's frontend.
+
+Running the Project
+To run the Django development server and view the project, use the appropriate command to start the server. Ensure that all configurations and dependencies are properly set up.
+

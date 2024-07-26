@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Rentex{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="display-4">Welcome to Rentex</h1>
+            <p class="lead">Explore our extensive collection of rental items including cameras, trekking gear, riding gear, and much more. Whether you're planning an adventure or looking for the latest tech, Rentex has you covered.</p>
+            <p>Our mission is to provide you with high-quality rental equipment at affordable prices. Browse our categories and find the perfect gear for your next adventure.</p>
+        </div>
+        <div class="col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4>Featured Categories</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="{% url 'camera_list' %}">Cameras</a></li>
+                        <li class="list-group-item"><a href="{% url 'trekkinggear_list' %}">Trekking Gear</a></li>
+                        <li class="list-group-item"><a href="{% url 'ridinggear_list' %}">Riding Gear</a></li>
+                        <li class="list-group-item"><a href="{% url 'actioncamera_list' %}">Action Cameras</a></li>
+                        <li class="list-group-item"><a href="{% url 'gamingconsole_list' %}">Gaming Consoles</a></li>
+                        <li class="list-group-item"><a href="{% url 'winterwear_list' %}">Winter Wear</a></li>
+                        <li class="list-group-item"><a href="{% url 'audiovisual_list' %}">Audio-Visual Equipment</a></li>
+                        <li class="list-group-item"><a href="{% url 'campinggear_list' %}">Camping Gear</a></li>
+                        <li class="list-group-item"><a href="{% url 'creatorgear_list' %}">Creator Gear</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <h2>Featured Items</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_camera.image.url }}" class="card-img-top" alt="{{ example_camera.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_camera.name }}</h5>
+                            <p class="card-text">{{ example_camera.description }}</p>
+                            <a href="{% url 'camera_list' %}" class="btn btn-primary">Explore Cameras</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_trekking_gear.image.url }}" class="card-img-top" alt="{{ example_trekking_gear.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_trekking_gear.name }}</h5>
+                            <p class="card-text">{{ example_trekking_gear.description }}</p>
+                            <a href="{% url 'trekkinggear_list' %}" class="btn btn-primary">Explore Trekking Gear</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_riding_gear.image.url }}" class="card-img-top" alt="{{ example_riding_gear.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_riding_gear.name }}</h5>
+                            <p class="card-text">{{ example_riding_gear.description }}</p>
+                            <a href="{% url 'ridinggear_list' %}" class="btn btn-primary">Explore Riding Gear</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

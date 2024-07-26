@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Camera{% endblock %}
+
+{% block content %}
+<h2>Update Camera</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

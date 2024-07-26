@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<h1>Order Confirmation</h1>
+<p>Thank you for your order, {{ order.user.username }}!</p>
+<p>Item: {{ order.item.name}}</p>
+<p>Quantity: {{ order.quantity }}</p>
+<p>Rental Duration: {{ order.rental_duration_days }} days and {{ order.rental_duration_months }} months</p>
+<p>Total Price: ${{ order.total_price }}</p>
+<p>Order Date: {{ order.order_date }}</p>
+<p>Submit Date: {{ order.end_date }}</p>
+
+{% endblock %}
