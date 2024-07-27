@@ -2,27 +2,29 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>Order Details</h1>
+    <h1 class="mb-4">Order Details</h1>
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-center">
                     <!-- Displaying the image -->
                     {% if order.item.image %}
-                        <img src="{{ order.item.image.url }}" alt="{{ order.item.name }}" class="img-fluid">
+                        <img src="{{ order.item.image.url }}" alt="{{ order.item.name }}" class="img-fluid mb-3">
                     {% else %}
-                        <p>No image available</p>
+                        <p class="text-muted">No image available</p>
                     {% endif %}
                 </div>
                 <div class="col-md-8">
-                    <h2 class="card-title">Order #{{ order.id }}</h2>
-                    <p><strong>Order Date:</strong> {{ order.order_date }}</p>
-                    <p><strong>Item Name:</strong> {{ order.item.name }}</p>
-                    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
-                    <p><strong>Start Date:</strong> {{ order.start_date }}</p>
-                    <p><strong>End Date:</strong> {{ order.end_date }}</p>
-                    <p><strong>Rental Days:</strong> {{ order.rental_duration_days }}</p>
-                    <p><strong>Total Price:</strong> ${{ order.total_price }}</p>
+                    <h2 class="card-title mb-3">Order #{{ order.id }}</h2>
+                    <ul class="list-unstyled">
+                        <li><strong>Order Date:</strong> {{ order.order_date }}</li>
+                        <li><strong>Item Name:</strong> {{ order.item.name }}</li>
+                        <li><strong>Quantity:</strong> {{ order.quantity }}</li>
+                        <li><strong>Start Date:</strong> {{ order.start_date }}</li>
+                        <li><strong>End Date:</strong> {{ order.end_date }}</li>
+                        <li><strong>Rental Days:</strong> {{ order.rental_duration_days }}</li>
+                        <li><strong>Total Price:</strong> ${{ order.total_price }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
