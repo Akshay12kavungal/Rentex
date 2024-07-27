@@ -11,14 +11,25 @@ def home(request):
     example_camera = Camera.objects.first()
     example_trekking_gear = TrekkingGear.objects.first()
     example_riding_gear = RidingGear.objects.first()
+    example_action_camera = ActionCamera.objects.first()
+    example_gaming_console = GamingConsole.objects.first()
+    example_winter_wear = WinterWear.objects.first()
+    example_audio_visual = AudioVisualEquipment.objects.first()
+    example_camping_gear = CampingGear.objects.first()
+    example_creator_gear = CreatorGear.objects.first()
 
     context = {
         'example_camera': example_camera,
         'example_trekking_gear': example_trekking_gear,
         'example_riding_gear': example_riding_gear,
+        'example_action_camera': example_action_camera,
+        'example_gaming_console': example_gaming_console,
+        'example_winter_wear': example_winter_wear,
+        'example_audio_visual': example_audio_visual,
+        'example_camping_gear': example_camping_gear,
+        'example_creator_gear': example_creator_gear,
     }
     return render(request, 'home.html', context)
-
 
 # Trekking Gear views
 class TrekkingGearListView(ListView):

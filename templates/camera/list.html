@@ -3,23 +3,29 @@
 {% block title %}Cameras{% endblock %}
 
 {% block content %}
-
-
-<h2>Cameras</h2>
-<div class="row">
-    {% for item in object_list %}
-    <div class="col-md-4 mb-4">
-        <div class="card h-100">
-            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text mt-auto">Price: ${{ item.price }}</p>
-                <a href="{% url 'rent_item' item.id %}" class="btn btn-primary">Rent</a>
-                <a href="{% url 'add_to_cart' item.id %}" class="btn btn-primary">Add to Cart</a>
+<div class="container my-5">
+    <h2 class="text-center mb-4">Cameras</h2>
+    <div class="row">
+        {% for item in object_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-light">
+                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text mb-3">{{ item.description|slice:":100" }}{% if item.description|length > 100 %}...{% endif %}</p>
+                    <p class="card-text mt-auto text-primary font-weight-bold">Price: ${{ item.price }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'rent_item' 'camera' item.id %}" class="btn btn-primary">Rent</a>
+                        <a href="{% url 'add_to_cart' 'camera' item.id %}" class="btn btn-secondary">Add to Cart</a>
+                    </div>
+                </div>
             </div>
         </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No cameras available at the moment.</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
