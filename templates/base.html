@@ -9,9 +9,53 @@
     <script src="{% static 'js/scripts.js' %}" defer></script>
     <!-- Add Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            padding-top: 56px; /* Adjusted padding for fixed navbar */
+            padding-bottom: 60px; /* Space for footer */
+        }
+        .navbar {
+            margin-bottom: 0;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            font-weight: 500;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #f8f9fa;
+        }
+        .navbar-toggler {
+            border-color: #007bff;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath stroke='currentColor' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-top: 1px solid #dee2e6;
+        }
+        .footer p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Rentex</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,11 +70,10 @@
                         <div class="dropdown-menu" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="{% url 'profile_overview' %}">Profile Overview</a>
                             <a class="dropdown-item" href="{% url 'my_wallet' %}">My Wallet</a>
-                           
                             <a class="dropdown-item" href="{% url 'my_orders' %}">My Orders</a>
                             <a class="dropdown-item" href="{% url 'cart' %}">My Cart</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item"  href="{% url 'user_logout' %}">Logout</a>
+                            <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -65,9 +108,9 @@
         {% endblock %}
     </main>
 
-    <footer class="footer mt-4">
+    <footer class="footer">
         <div class="container">
-            <p class="text-center">© 2024 Rentex. All rights reserved.</p>
+            <p class="text-center">© 2024 Rentex. All rights reserved. Developed by <a href="#">Akshay.k</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
 

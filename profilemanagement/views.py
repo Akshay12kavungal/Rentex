@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
-from renting.models import Camera
+from renting.models import ActionCamera, AudioVisualEquipment, Camera, CampingGear, CreatorGear, GamingConsole, RidingGear, TrekkingGear, WinterWear
 from .models import Wallet, Order, CartItem
 from .forms import CustomerForm, LoginForm, RentalForm, UserForm, WalletForm, OrderForm
 from django.contrib.auth import authenticate, login, logout
@@ -67,10 +67,26 @@ def my_orders(request):
 
 
 @login_required
-def add_to_cart(request, item_id):
-    item = get_object_or_404(Camera, id=item_id)
+def add_to_cart(request, item_id, model_name):
+    # Get the content type for the given model_name
+    model_class = {
+        'trekkinggear': TrekkingGear,
+        'camera': Camera,
+        'ridinggear': RidingGear,
+        'actioncamera': ActionCamera,
+        'gamingconsole': GamingConsole,
+        'winterwear': WinterWear,
+        'audiovisualequipment': AudioVisualEquipment,
+        'campinggear': CampingGear,
+        'creatorgear': CreatorGear,
+    }.get(model_name)
+
+    if not model_class:
+        return redirect('error_page')  # Handle the error case
+
+    item = get_object_or_404(model_class, pk=item_id)
     content_type = ContentType.objects.get_for_model(item)
-    
+
     cart_item, created = CartItem.objects.get_or_create(
         user=request.user,
         content_type=content_type,
@@ -147,9 +163,27 @@ def decrement_cart_item_quantity(request, item_id):
 
 
 @login_required
-def rent_item(request, item_id):
-    item = get_object_or_404(Camera, pk=item_id)
-    
+def rent_item(request, item_id, model_name):
+    # Get the content type for the given model_name
+    model_class = {
+        'trekkinggear': TrekkingGear,
+        'camera': Camera,
+        'ridinggear': RidingGear,
+        'actioncamera': ActionCamera,
+        'gamingconsole': GamingConsole,
+        'winterwear': WinterWear,
+        'audiovisualequipment': AudioVisualEquipment,
+        'campinggear': CampingGear,
+        'creatorgear': CreatorGear,
+       
+
+    }.get(model_name)
+
+    if not model_class:
+        return redirect('error_page')  # Handle the error case
+
+    item = get_object_or_404(model_class, pk=item_id)
+
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():

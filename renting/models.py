@@ -26,7 +26,7 @@ class Camera(models.Model):
         ('dslr', 'DSLR'),
         ('mirrorless', 'Mirrorless'),
         ('compact', 'Compact'),
-        ('action', 'Action'),
+        ('binocular', 'Binocular'),
     ]
     
     name = models.CharField(max_length=100)
@@ -125,7 +125,7 @@ class AudioVisualEquipment(models.Model):
         ('projector', 'Projector'),
         ('microphone', 'Microphone'),
         ('speaker', 'Speaker'),
-        ('camera', 'Camera'),
+        ('vr', 'Vr'),
     ]
     
     name = models.CharField(max_length=100)
@@ -163,11 +163,16 @@ from django.db import models
 
 class CreatorGear(models.Model):
     CREATOR_GEAR_CHOICES = [
-        ('camera', 'Camera'),
-        ('microphone', 'Microphone'),
-        ('lighting', 'Lighting'),
-        ('tripod', 'Tripod'),
+    ('action_cameras', 'Action Cameras'),
+    ('wireless_mics', 'Wireless & Collar Mics'),
+    ('professional_cameras', 'Professional Cameras'),
+    ('vlogging_cameras', 'Vlogging Cameras'),
+    ('mounts_accessories', 'Mounts & Accessories'),
+    ('studio_lights', 'Studio Lights'),
+    ('gimbals_grips', 'Gimbals and Grips'),
+    
     ]
+
     
     name = models.CharField(max_length=50, choices=CREATOR_GEAR_CHOICES)
     description = models.TextField()

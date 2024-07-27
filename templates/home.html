@@ -4,14 +4,13 @@
 {% block title %}Home - Rentex{% endblock %}
 
 {% block content %}
-
-
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-8">
             <h1 class="display-4">Welcome to Rentex</h1>
             <p class="lead">Explore our extensive collection of rental items including cameras, trekking gear, riding gear, and much more. Whether you're planning an adventure or looking for the latest tech, Rentex has you covered.</p>
             <p>Our mission is to provide you with high-quality rental equipment at affordable prices. Browse our categories and find the perfect gear for your next adventure.</p>
+            <p>We offer fast delivery, easy returns, and top-notch customer service to ensure you have the best rental experience. Start exploring our featured categories and items below!</p>
         </div>
         <div class="col-lg-4">
             <div class="card shadow-sm">
@@ -66,6 +65,66 @@
                             <h5 class="card-title">{{ example_riding_gear.name }}</h5>
                             <p class="card-text">{{ example_riding_gear.description }}</p>
                             <a href="{% url 'ridinggear_list' %}" class="btn btn-primary">Explore Riding Gear</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_action_camera.image.url }}" class="card-img-top" alt="{{ example_action_camera.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_action_camera.name }}</h5>
+                            <p class="card-text">{{ example_action_camera.description }}</p>
+                            <a href="{% url 'actioncamera_list' %}" class="btn btn-primary">Explore Action Cameras</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_gaming_console.image.url }}" class="card-img-top" alt="{{ example_gaming_console.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_gaming_console.name }}</h5>
+                            <p class="card-text">{{ example_gaming_console.description }}</p>
+                            <a href="{% url 'gamingconsole_list' %}" class="btn btn-primary">Explore Gaming Consoles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_winter_wear.image.url }}" class="card-img-top" alt="{{ example_winter_wear.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_winter_wear.name }}</h5>
+                            <p class="card-text">{{ example_winter_wear.description }}</p>
+                            <a href="{% url 'winterwear_list' %}" class="btn btn-primary">Explore Winter Wear</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_audio_visual.image.url }}" class="card-img-top" alt="{{ example_audio_visual.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_audio_visual.name }}</h5>
+                            <p class="card-text">{{ example_audio_visual.description }}</p>
+                            <a href="{% url 'audiovisual_list' %}" class="btn btn-primary">Explore Audio-Visual Equipment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_camping_gear.image.url }}" class="card-img-top" alt="{{ example_camping_gear.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_camping_gear.name }}</h5>
+                            <p class="card-text">{{ example_camping_gear.description }}</p>
+                            <a href="{% url 'campinggear_list' %}" class="btn btn-primary">Explore Camping Gear</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ example_creator_gear.image.url }}" class="card-img-top" alt="{{ example_creator_gear.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ example_creator_gear.name }}</h5>
+                            <p class="card-text">{{ example_creator_gear.description }}</p>
+                            <a href="{% url 'creatorgear_list' %}" class="btn btn-primary">Explore Creator Gear</a>
                         </div>
                     </div>
                 </div>
