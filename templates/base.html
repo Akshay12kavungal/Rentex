@@ -17,29 +17,48 @@
         }
         .navbar {
             margin-bottom: 0;
+            background: linear-gradient(135deg, #1c1c1d 0%, #00d2d3 100%);
+            height: 90px; 
+
         }
+           
         .navbar-brand {
             font-weight: bold;
+            color: #ffffff !important;
+            font-size: 1.5rem; /* Increased font size for brand */
         }
         .navbar-nav .nav-link {
             font-weight: 500;
+            color: #ffffff !important;
+            font-size: 1.1rem; /* Increased font size for links */
+            padding: 15px 20px; /* Increased padding for nav links */
         }
         .navbar-nav .nav-link:hover {
-            background-color: #f8f9fa;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff !important;
         }
         .navbar-toggler {
-            border-color: #007bff;
+            border-color: #ffffff;
+            height: 50px; /* Increased height for toggler */
         }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath stroke='currentColor' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+        }
+        .dropdown-menu {
+            font-size: 1rem; /* Increased font size for dropdown items */
+        }
+        .dropdown-item {
+            padding: 10px 20px; /* Increased padding for dropdown items */
         }
         .footer {
             position: fixed;
             bottom: 0;
             width: 100%;
             background-color: #f8f9fa;
-            padding: 10px 0;
+            padding: 20px 0;
             border-top: 1px solid #dee2e6;
+            
+            
         }
         .footer p {
             margin: 0;
@@ -55,14 +74,14 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Rentex</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profile
@@ -95,7 +114,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Policies</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
                 </ul>
-                <form class="form-inline ml-auto my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0 ml-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -103,13 +122,13 @@
         </div>
     </nav>
 
-    <main role="main" class="container">
+    <main role="main" class="container-fluid">
         {% block content %}
         {% endblock %}
     </main>
 
     <footer class="footer">
-        <div class="container">
+        <div class="container-fluid">
             <p class="text-center">© 2024 Rentex. All rights reserved. Developed by <a href="#">Akshay.k</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>

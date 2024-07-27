@@ -2,12 +2,26 @@
 {% load static %}
 {% block content %}
 <div class="container mt-5">
-    <h1>My Cart</h1>
+    <h1 class="mb-4">My Cart</h1>
+    <style>
+        /* Custom Styles for Cart Cards */
+        .custom-card {
+            width: 100%; /* Make sure the card takes full width of its container */
+            max-width: 350px; /* Adjust the max-width to your preferred size */
+            margin: auto; /* Center the card within the column */
+         
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 400px; /* Adjust height as needed */
+        }
+    </style>
     {% if cart_items %}
         <div class="row">
             {% for cart_item in cart_items %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
+            <div class="col-md-4 mb-5">
+                <div class="card custom-card">
                     {% if cart_item.item.image %}
                     <img src="{{ cart_item.item.image.url }}" class="card-img-top" alt="{{ cart_item.item.name }}">
                     {% else %}
@@ -33,7 +47,9 @@
             {% endfor %}
         </div>
     {% else %}
-        <p>Your cart is empty.</p>
+        <div class="alert alert-info" role="alert">
+            Your cart is empty.
+        </div>
     {% endif %}
 </div>
 {% endblock %}
