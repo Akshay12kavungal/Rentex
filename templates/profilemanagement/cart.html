@@ -2,45 +2,53 @@
 {% load static %}
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">My Cart</h1>
+    <h1 class="text-center mb-4">My Cart</h1>
     <style>
-        /* Custom Styles for Cart Cards */
-        .custom-card {
-            width: 100%; /* Make sure the card takes full width of its container */
-            max-width: 350px; /* Adjust the max-width to your preferred size */
-            margin: auto; /* Center the card within the column */
-         
+
+
+        .card {
+            display: flex;
+            flex-direction: column;
         }
 
-        .card-img-top {
-            object-fit: cover;
-            height: 400px; /* Adjust height as needed */
+        .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body .btn {
+            margin-top: 10px; /* Ensure some space between buttons */
+        }
+
+        .card-body .mt-auto {
+            margin-top: auto;
         }
     </style>
     {% if cart_items %}
         <div class="row">
             {% for cart_item in cart_items %}
-            <div class="col-md-4 mb-5">
-                <div class="card custom-card">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light h-100">
                     {% if cart_item.item.image %}
-                    <img src="{{ cart_item.item.image.url }}" class="card-img-top" alt="{{ cart_item.item.name }}">
+                    <img src="{{ cart_item.item.image.url }}" class="card-img-top fixed-img" alt="{{ cart_item.item.name }}">
                     {% else %}
-                    <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                    <img src="{% static 'images/default-image.jpg' %}" class="card-img-top fixed-img" alt="Default Image">
                     {% endif %}
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ cart_item.item.name }}</h5>
-                        <p class="card-text"><strong>Quantity:</strong> {{ cart_item.quantity }}</p>
-                        <p class="card-text"><strong>Price per item:</strong> ${{ cart_item.item.price|floatformat:2 }}</p>
-                        <p class="card-text"><strong>Total Price:</strong> ${{ cart_item.total_price|floatformat:2 }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
+                        <p class="card-text mb-3"><strong>Quantity:</strong> {{ cart_item.quantity }}</p>
+                        <p class="card-text mb-3"><strong>Price per item:</strong> ${{ cart_item.item.price|floatformat:2 }}</p>
+                        <p class="card-text text-primary font-weight-bold"><strong>Total Price:</strong> ${{ cart_item.total_price|floatformat:2 }}</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
                             <div>
                                 <a href="{% url 'decrement_cart_item_quantity' item_id=cart_item.id %}" class="btn btn-warning btn-sm">-</a>
                                 <span class="mx-2">{{ cart_item.quantity }}</span>
                                 <a href="{% url 'increment_cart_item_quantity' item_id=cart_item.id %}" class="btn btn-success btn-sm">+</a>
                             </div>
                             <a href="{% url 'delete_cart_item' cart_item.id %}" class="btn btn-danger btn-sm">Remove</a>
-                            <a href="{% url 'rent_from_cart' cart_item.id %}" class="btn btn-primary">Rent</a>
                         </div>
+                        <a href="{% url 'rent_from_cart' cart_item.id %}" class="btn btn-primary mt-3">Rent</a>
                     </div>
                 </div>
             </div>
